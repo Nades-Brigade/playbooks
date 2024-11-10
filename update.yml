@@ -6,7 +6,7 @@
     ansible_become_password: "Zahra786!"
   tasks:
     - name: Run sudo apt update
-      ansible.builtin.shell: "sudo apt update"
+      ansible.builtin.shell: "apt list --upgradable"
       register: update_output
 
     - name: Display apt update output
