@@ -1,0 +1,6 @@
+---
+- name: Ping Ubuntu Host
+  hosts: all
+  tasks:
+    - name: Ping the Ubuntu machine
+      ping:
