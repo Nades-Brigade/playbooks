@@ -1,0 +1,8 @@
+---
+- name: Update package lists on Ubuntu
+  hosts: all
+  become: yes  # Run tasks with sudo privileges
+  tasks:
+    - name: Run sudo apt update
+      ansible.builtin.apt:
+        update_cache: yes
