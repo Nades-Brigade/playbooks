@@ -1,6 +1,7 @@
 ---
-- name: Ping Ubuntu Host
+- name: Hello World Playbook
   hosts: all
   tasks:
-    - name: Ping the Ubuntu machine
-      ping:
+    - name: Print Hello World message
+      ansible.builtin.debug:
+        msg: "Hello World from your Ubuntu PC"
