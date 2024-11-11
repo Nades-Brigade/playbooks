@@ -1,7 +1,7 @@
 ---
 - name: Open a website on the target Linux machine
-  hosts: target_linux
-  become: yes  # Optional, only if sudo privileges are required
+  hosts: all
+  become: yes
   tasks:
     - name: Open the website in the default browser
       command: "xdg-open https://clientele.co.za"
