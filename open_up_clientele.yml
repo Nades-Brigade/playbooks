@@ -1,0 +1,12 @@
+---
+- name: Open a website on the target Linux machine
+  hosts: target_linux
+  become: yes  # Optional, only if sudo privileges are required
+  tasks:
+    - name: Open the website in the default browser
+      command: "xdg-open https://clientele.co.za"
+      environment:
+        DISPLAY: ":0"  # Set display for GUI
+      async: 1         # Run the task asynchronously to avoid blocking
+      poll: 0          # Do not wait for the task to complete
+      ignore_errors: true  # Ignore errors if xdg-open fails (e.g., if no GUI is available)
