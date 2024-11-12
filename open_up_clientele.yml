@@ -6,7 +6,7 @@
     ansible_become_password: "Zahra786!"
   tasks:
     - name: Open clientele.co.za in Firefox
-      ansible.builtin.shell: "DISPLAY=:0 firefox https://clientele.co.za"
+      ansible.builtin.shell: "runuser -l nadir -c 'DISPLAY=:0 firefox https://clientele.co.za'"
       register: firefox_output
       ignore_errors: false  # Ignores errors if Firefox fails to open
     - name: Display Firefox command output
