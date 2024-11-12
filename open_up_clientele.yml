@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Open the website in the default browser
-      command: "xdg-open https://clientele.co.za"
+      command: "firefox https://clientele.co.za"
       environment:
         DISPLAY: ":0"  # Set display for GUI
       async: 1         # Run the task asynchronously to avoid blocking
