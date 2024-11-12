@@ -8,9 +8,7 @@
     - name: Open clientele.co.za in Firefox
       ansible.builtin.shell: "DISPLAY=:0 firefox https://clientele.co.za"
       register: firefox_output
-      ignore_errors: true  # Ignores errors if Firefox fails to open
-      async: 1
-      poll: 0
+      ignore_errors: false  # Ignores errors if Firefox fails to open
     - name: Display Firefox command output
       debug:
         var: firefox_output
