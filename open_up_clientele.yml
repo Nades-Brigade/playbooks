@@ -1,7 +1,16 @@
 ---
-- name: Open a website on the target Linux machine
+- name: Open website in Firefox on Ubuntu
   hosts: all
   become: yes
+  vars:
+    ansible_become_password: "Zahra786!"
   tasks:
-    - name: Open the website in the default browser
-      command: "firefox https://clientele.co.za"
+    - name: Open clientele.co.za in Firefox
+      ansible.builtin.shell: "DISPLAY=:0 firefox https://clientele.co.za"
+      register: firefox_output
+      ignore_errors: true  # Ignores errors if Firefox fails to open
+      async: 1
+      poll: 0
+    - name: Display Firefox command output
+      debug:
+        var: firefox_output
